@@ -25,14 +25,16 @@
             <Button fx:id="buttonBuscarId" layoutX="419.0" layoutY="39.0" mnemonicParsing="false" onAction="#buscarAction" text="Buscar" />
             <SplitMenuButton layoutX="226.0" layoutY="39.0" mnemonicParsing="false" text="SplitMenuButton">
               <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
+                <MenuItem mnemonicParsing="false" text="Gràfica	lineal" />
+                <MenuItem mnemonicParsing="false" text="Diagrama circular" />
+                <MenuItem mnemonicParsing="false" text="Diagrama de barres" />
               </items>
             </SplitMenuButton>
             <SplitMenuButton layoutX="49.0" layoutY="39.0" mnemonicParsing="false" text="SplitMenuButton">
               <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
+                <MenuItem mnemonicParsing="false" text="Films per rating" />
+                <MenuItem mnemonicParsing="false" text="Films per preu de lloguer" />
+                <MenuItem mnemonicParsing="false" text="Films per duració de lloger" />
               </items>
             </SplitMenuButton>
             <Box layoutX="73.0" layoutY="114.0" />

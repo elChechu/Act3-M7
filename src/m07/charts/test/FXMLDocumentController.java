@@ -9,17 +9,23 @@ import java.net.URL;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javax.persistence.EntityManagerFactory;
 import m07.DAO.ActorDAO;
 import m07.DAO.DAO;
+import m07.DAO.FilmDAO;
 import m07.entitats.Actor;
+import m07.entitats.Film;
 
 /**
  *
@@ -42,14 +48,28 @@ public class FXMLDocumentController implements Initializable {
        
 
         //Exemple accès a taula actors
+        
         EntityManagerFactory emf = DAO.getEntityManagerFactory();
+        
+        EntityManagerFactory emf2 = DAO.getEntityManagerFactory();
+        
         ActorDAO actorDao = new ActorDAO(emf);
+        FilmDAO filmDao = new FilmDAO(emf2);
+        List<Film> filmList = filmDao.findFilm();
         List<Actor> actorList = actorDao.findActor();
 
         actorList.forEach((actor) -> {
             System.out.println(actor.getFirstName() + " - " + actor.getLastName());
         });
-
+        
+        
+        filmList.forEach((film) -> {
+            System.out.println(film.getFilmId()  + " - " + film.getRating());
+        });
+        
+        
+        
+        
     }
 
     
@@ -70,6 +90,29 @@ public class FXMLDocumentController implements Initializable {
         newWindow.setY(400);
         newWindow.show();
         
+    }
+    
+    private void circleTest(Stage stage){
+         
+        Scene scene = new Scene(new Group());
+        stage.setTitle("Imported Fruits");
+        stage.setWidth(500);
+        stage.setHeight(500);
+ 
+        ObservableList<PieChart.Data> pieChartData =
+                FXCollections.observableArrayList(
+                new PieChart.Data("Grapefruit", 13),
+                new PieChart.Data("Oranges", 25),
+                new PieChart.Data("Plums", 10), 
+               new PieChart.Data("Pears", 22),
+                new PieChart.Data("Apples", 30));
+        final PieChart chart = new PieChart(pieChartData);
+        chart.setTitle("Imported Fruits");
+
+        ((Group) scene.getRoot()).getChildren().add(chart);
+        stage.setScene(scene);
+        stage.show();
+    
     }
     
     

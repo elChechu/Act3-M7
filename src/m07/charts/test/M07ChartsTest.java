@@ -6,9 +6,13 @@
 package m07.charts.test;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.stage.Stage;
 
 
@@ -26,8 +30,12 @@ public class M07ChartsTest extends Application {
         
         stage.setScene(scene);
         stage.show();
+        
     }
 
+    
+    
+    
     /**
      * @param args the command line arguments
      */
